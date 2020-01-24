@@ -1,0 +1,19 @@
+1. 
+	A* will not find optimal solution if the heuristic over-estimates cost by 20% to the goal. this is heuristic is not admissible. 
+	we can modify the heuristic function to:
+		h'(n) = 0.8 * h(n)
+
+ 	A* will find optimal solution even if the huristic under-estimates cost by 20%(admissible). It might take extra time to reach the optimal solution.
+	we can find closer heuristic to improve A*
+
+2.
+	false, we can't use A* to solve the problem. the Manhattan distances might over-estimate the actual cost. thus this heuristic is not admissible. A* will not able to find optimal solution.
+
+
+
+heuristic_alt decription:
+	L distance is an admissible heuristic, however, it under-estimates the goal alot. My heuristic_alt will improve the underestimate. 
+	First I checked if xanadus are in the same axis with center, then I check if there is a robot would help him to get into center. if condition meets, then heuristic value is 1
+	then I checked if robots can help xanadus to make a L-turn to center, by checking the position of xanadus, robots and center. if condition meets, then heuristic value is 2
+	next I checked if robots can help xanadus to make double L-turn to center, same as above, this will have heuristic value of 3
+	if none of the condition meets, then assgined heuristic value of 5, which is not likely to pick.
